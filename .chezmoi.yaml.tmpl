@@ -1,3 +1,4 @@
+{{- $is_wsl := or (env "WSL_DISTRO_NAME") (env "IS_WSL") | not | not -}}
 {{- /* Checks if running interactively, which is not the case for GitHub Codespaces */ -}}
 {{- $interactive := stdinIsATTY -}}
 
@@ -28,3 +29,7 @@ sourceDir: "{{ .chezmoi.sourceDir }}"
 data:
   name: "{{ $name }}"
   email: "{{ $email }}"
+  is_wsl: {{ $is_wsl }}
+
+git:
+  autoCommit: true
