@@ -24,13 +24,11 @@
 {{-   writeToStdout "💡 Tip: you can re-enter your name and email with `chezmoi init --data=false`.\n" -}}
 {{- end -}}
 
-{{- if eq .chezmoi.os "darwin" -}}
-{{ $computerName := output "scutil" "--get" "ComputerName" | trim }}
-{{ else }}
-{{ $computerName := .chezmoi.hostname }}
-{{ end -}}
 
-{{ $computerName := output "scutil" "--get" "ComputerName" | trim }}
+{{ $computerName := .chezmoi.hostname }}
+{{- if eq .chezmoi.os "darwin" -}}
+{{ $computerName = output "scutil" "--get" "ComputerName" | trim }}
+{{ end -}}
 
 
 sourceDir: "{{ .chezmoi.sourceDir }}"
@@ -40,7 +38,6 @@ data:
   email: "{{ $email }}"
   is_wsl: {{ $is_wsl }}
   computer_name: {{ $computerName }}
-
 git:
   autoCommit: true
 
