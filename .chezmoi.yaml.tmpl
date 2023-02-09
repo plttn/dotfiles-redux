@@ -38,6 +38,7 @@ data:
   email: "{{ $email }}"
   is_wsl: {{ $is_wsl }}
   computer_name: {{ $computerName }}
+  os: {{ .chezmoi.os }}
 git:
   autoCommit: true
 
