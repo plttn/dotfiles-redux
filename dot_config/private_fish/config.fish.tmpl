@@ -18,7 +18,11 @@ if type -q op
    op completion fish | source
 end
 
-#starship init fish | source
+{{- if eq .is_wsl true}}
+{$HOME}/.local/bin/wsl-ssh-agent-relay start
+export SSH_AUTH_SOCK={$HOME}/.ssh/wsl-ssh-agent.sock
+{{- end }}
+
 
 set fish_greeting
 source /Users/jack/.config/op/plugins.sh
