@@ -24,8 +24,8 @@
     lg3-specific = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset) %C(bold cyan)(committed: %cD)%C(reset) %C(auto)%d%C(reset)%n''          %C(white)%s%C(reset)%n''          %C(dim white)- %an <%ae> %C(reset) %C(dim white)(committer: %cn <%ce>)%C(reset)'
 
 
-    a = add
-    ap = add -p
+    a = {{ .chezmoi.command }}
+    ap = {{ .chezmoi.command }} -p
     c = commit --verbose
     ca = commit -a --verbose
     cm = commit -m
@@ -53,16 +53,19 @@
 [core]
 	editor = code --wait
 	pager = delta
-	excludesfile = /Users/jack/.config/git/ignore
+	excludesfile = {{ .chezmoi.homeDir }}/.config/git/ignore
 
 [interactive]
     diffFilter = delta --color-only
-[add.interactive]
-    useBuiltin = false # required for git 2.37.0
 
 [delta]
-    navigate = true    # use n and N to move between diff sections
-    light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
+    navigate = true
+
+[merge]
+    conflictstyle = diff3
+
+[diff]
+    colorMoved = default
 
 [merge]
     conflictstyle = diff3
