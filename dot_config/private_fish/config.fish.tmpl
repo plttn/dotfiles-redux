@@ -27,5 +27,6 @@ export SSH_AUTH_SOCK={$HOME}/.ssh/wsl-ssh-agent.sock
 set fish_greeting
 {{ if eq .chezmoi.os "darwin" -}}
 source /Users/jack/.config/op/plugins.sh
+export LS_COLORS="$(vivid generate molokai)"
 {{- end }}
 
