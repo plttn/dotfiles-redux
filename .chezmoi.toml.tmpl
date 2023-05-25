@@ -1,4 +1,11 @@
-{{- $is_wsl := or (env "WSL_DISTRO_NAME") (env "IS_WSL") | not | not -}}
+{{- $is_wsl := false }}
+
+{{ if eq .chezmoi.os "linux" }}
+{{   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
+{{- $is_wsl = true}}
+{{   end }}
+{{ end }}
+
 {{- /* Checks if running interactively, which is not the case for GitHub Codespaces */ -}}
 {{- $interactive := stdinIsATTY -}}
 
@@ -31,22 +38,25 @@
 {{ end -}}
 
 
-sourceDir: "{{ .chezmoi.sourceDir }}"
+sourceDir = "{{ .chezmoi.sourceDir }}"
 
-data:
-  name: "{{ $name }}"
-  email: "{{ $email }}"
-  is_wsl: {{ $is_wsl }}
-  computer_name: {{ $computerName }}
-  os: {{ .chezmoi.os }}
-git:
-  autoCommit: true
+[data]
+  name = "{{ $name }}"
+  email =  "{{ $email }}"
+  is_wsl = {{ $is_wsl }}
+  computer_name = "{{ $computerName }}"
+  os = "{{ .chezmoi.os }}"
 
-edit:
-    command: "code"
-    args: ["--wait"]
+[git]
+  autoCommit = true
+  
+[edit]
+    command = "code"
+    args = ["--wait"]
 
+{{- if eq .chezmoi.os "darwin" }}
+[merge]
+    command = "ksdiff"
+    args = ["--merge", "--output", "{{"{{ .Source }}"}}", "{{"{{ .Destination }}"}}","{{"{{ .Target }}"}}"]
+{{- end }}
 
-merge:
-    command: "ksdiff"
-    args: ["--merge", "--output", "{{ "{{ .Source }}" }}", "{{ "{{ .Destination }}" }}", "{{ "{{ .Target }}" }}"]
