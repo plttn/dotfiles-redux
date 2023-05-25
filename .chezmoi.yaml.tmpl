@@ -47,15 +47,10 @@ edit:
     args: ["--wait"]
 
 
-{{- if eq .chezmoi.os "darwin" -}}
 merge:
   command: "ksdiff"
   args:
     [
       "--merge",
       "--output",
-      "{{ .Destination }}",
-      "{{ .Source }}",
-      "{{ .Target }}",
     ]
-{{ end -}}
