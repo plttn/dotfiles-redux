@@ -45,3 +45,17 @@ git:
 edit:
     command: "code"
     args: ["--wait"]
+
+
+{{- if eq .chezmoi.os "darwin" -}}
+merge:
+  command: "ksdiff"
+  args:
+    [
+      "--merge",
+      "--output",
+      "{{ .Source }}",
+      "{{ .Destination }}",
+      "{{ .Target }}",
+    ]
+{{ end -}}
