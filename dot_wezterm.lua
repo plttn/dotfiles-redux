@@ -22,7 +22,7 @@ config.initial_rows = 30
 front_end = "WebGpu"
 config.force_reverse_video_cursor = true
 
-config.harfbuzz_features = { 'ss03' }
+config.harfbuzz_features = { 'ss02' }
 
 -- and finally, return the configuration to wezterm
 return config
