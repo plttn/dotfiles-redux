@@ -20,7 +20,7 @@ config.hide_tab_bar_if_only_one_tab = true
 config.initial_cols = 90
 config.initial_rows = 30
 front_end = "WebGpu"
--- config.force_reverse_video_cursor = true
+config.force_reverse_video_cursor = true
 
 config.harfbuzz_features = { 'ss03' }
 
