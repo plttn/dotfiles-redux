@@ -13,7 +13,9 @@ end
 -- This is where you actually apply your config choices
 
 -- For example, changing the color scheme:
-config.color_scheme = 'Monokai Remastered'
+-- config.color_scheme = 'Monokai Remastered'
+config.color_scheme = 'Colors (base16)'
+
 config.font = wezterm.font 'Berkeley Mono'
 config.font_size = 13
 config.hide_tab_bar_if_only_one_tab = true
