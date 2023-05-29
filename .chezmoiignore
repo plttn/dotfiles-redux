@@ -7,4 +7,5 @@ README.md
 {{ if not .is_wsl }}
 # Only configure SSH agent pipe on WSL2
 .config/fish/conf.d/wsl-ssh-agent.fish
+.local/bin/wsl-ssh-agent-relay
 {{ end }}
