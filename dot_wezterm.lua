@@ -13,18 +13,16 @@ end
 -- This is where you actually apply your config choices
 
 -- For example, changing the color scheme:
--- config.color_scheme = 'Monokai Remastered'
-config.color_scheme = 'Colors (base16)'
+config.color_scheme = 'Monokai Remastered'
 
-config.font = wezterm.font 'Berkeley Mono'
-config.font_size = 13
+config.font = wezterm.font('Berkeley Mono')
+config.harfbuzz_features = {'ss01'}
+config.font_size = 12
 config.hide_tab_bar_if_only_one_tab = true
 config.initial_cols = 90
 config.initial_rows = 30
 front_end = "WebGpu"
 config.force_reverse_video_cursor = true
-
-config.harfbuzz_features = { 'ss02' }
-
+config.freetype_load_target = "Light"
 -- and finally, return the configuration to wezterm
 return config
