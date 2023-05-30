@@ -96,9 +96,9 @@
 	autoSetupRemote = true
 
 [url "ssh://git@github.com/"]
-	pushInsteadOf = https://github.com/
+	insteadOf = https://github.com/
 [url "ssh://git@gitlab.com/"]
-	pushInsteadOf = https://gitlab.com/
+	insteadOf = https://gitlab.com/
 
 [includeIf "hasconfig:remote.*.url:https://github.com/**"]
   path = ~/.config/git/gitconfig.github
