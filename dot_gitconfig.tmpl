@@ -113,3 +113,7 @@
 [mergetool "Kaleidoscope"]
 	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
 	trustExitCode = true
+[commit]
+	gpgsign = true
+[gpg]
+	program = /opt/homebrew/bin/gpg
