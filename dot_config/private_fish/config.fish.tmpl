@@ -22,6 +22,7 @@ end
 {{- if eq .is_wsl true}}
 {$HOME}/.local/bin/wsl-ssh-agent-relay start
 export SSH_AUTH_SOCK={$HOME}/.ssh/wsl-ssh-agent.sock
+set -x EXA_L_OPTIONS
 {{- end }}
 
 
