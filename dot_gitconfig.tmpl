@@ -53,7 +53,7 @@
 [core]
 	editor = code --wait
 	pager = delta
-	excludesfile = ~/.config/git/ignore
+	excludesfile = {{.chezmoi.homeDir}}/.config/git/ignore
 
 [interactive]
     diffFilter = delta --color-only
@@ -80,7 +80,7 @@
 
 
 [gpg "ssh"]
-	allowedSignersFile = ~.ssh/allowed_signers
+	allowedSignersFile = {{.chezmoi.homeDir}}/.ssh/allowed_signers
 
     
 	#program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
@@ -97,13 +97,13 @@
 
 
 [includeIf "hasconfig:remote.*.url:https://github.com/**"]
-  path = ~/.config/git/gitconfig.github
+  path = {{.chezmoi.homeDir}}/.config/git/gitconfig.github
 [includeIf "hasconfig:remote.*.url:git@github.com:*/**"]
-  path = ~/.config/git/gitconfig.github
+  path = {{.chezmoi.homeDir}}/.config/git/gitconfig.github
 [includeIf "hasconfig:remote.*.url:ssh://git@github.com:*/**"]
-  path = ~/.config/git/gitconfig.github
+  path = {{.chezmoi.homeDir}}/.config/git/gitconfig.github
 [includeIf "hasconfig:remote.*.url:ssh://git@gitlab.com:*/**"]
-  path = ~/.config/git/gitconfig.gitlab
+  path = {{.chezmoi.homeDir}}/.config/git/gitconfig.gitlab
 
 {{- if eq .chezmoi.os "darwin" }}
 [difftool "Kaleidoscope"]
