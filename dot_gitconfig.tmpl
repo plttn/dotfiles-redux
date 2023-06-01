@@ -97,13 +97,17 @@
 
 
 [includeIf "hasconfig:remote.*.url:https://github.com/**"]
-  path = {{.chezmoi.homeDir}}/.config/git/gitconfig.github
+  path = {{.chezmoi.homeDir}}/.gitconfig.d/github.conf
 [includeIf "hasconfig:remote.*.url:git@github.com:*/**"]
-  path = {{.chezmoi.homeDir}}/.config/git/gitconfig.github
+  path = {{.chezmoi.homeDir}}/.gitconfig.d/github.conf
 [includeIf "hasconfig:remote.*.url:ssh://git@github.com:*/**"]
-  path = {{.chezmoi.homeDir}}/.config/git/gitconfig.github
+  path = {{.chezmoi.homeDir}}/.gitconfig.d/github.conf
 [includeIf "hasconfig:remote.*.url:ssh://git@gitlab.com:*/**"]
-  path = {{.chezmoi.homeDir}}/.config/git/gitconfig.gitlab
+  path = {{.chezmoi.homeDir}}/.gitconfig.d/gitlab.conf
+[includeIf "hasconfig:remote.*.url:https://gitlab.com/**"]
+  path = {{.chezmoi.homeDir}}/.gitconfig.d/gitlab.conf
+[includeIf "hasconfig:remote.*.url:git@gitlab.com:*/**"]
+  path = {{.chezmoi.homeDir}}/.gitconfig.d/gitlab.conf
 
 {{- if eq .chezmoi.os "darwin" }}
 [difftool "Kaleidoscope"]
