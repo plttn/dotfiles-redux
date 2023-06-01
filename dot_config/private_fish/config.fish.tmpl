@@ -19,6 +19,7 @@ if type -q op
    op completion fish | source
 end
 
+set -x EXA_STANDARD_OPTIONS --group --group-directories-first
 {{- if eq .is_wsl true}}
 {$HOME}/.local/bin/wsl-ssh-agent-relay start
 export SSH_AUTH_SOCK={$HOME}/.ssh/wsl-ssh-agent.sock
