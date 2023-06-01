@@ -105,7 +105,7 @@
 [includeIf "hasconfig:remote.*.url:ssh://git@gitlab.com:*/**"]
   path = ~/.config/git/gitconfig.gitlab
 
-{{- if .chezmoi.os "darwin" }}
+{{- if .chezmoi.os eq "darwin" }}
 [difftool "Kaleidoscope"]
 	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 [mergetool "Kaleidoscope"]
