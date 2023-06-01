@@ -53,7 +53,7 @@
 [core]
 	editor = code --wait
 	pager = delta
-	excludesfile = /Users/jack/.config/git/ignore
+	excludesfile = ~/.config/git/ignore
 
 [interactive]
     diffFilter = delta --color-only
@@ -80,7 +80,7 @@
 
 
 [gpg "ssh"]
-	allowedSignersFile = /Users/jack/.ssh/allowed_signers
+	allowedSignersFile = ~.ssh/allowed_signers
 
     
 	#program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
@@ -95,10 +95,6 @@
 [push]
 	autoSetupRemote = true
 
-[url "ssh://git@github.com/"]
-	insteadOf = https://github.com/
-[url "ssh://git@gitlab.com/"]
-	insteadOf = https://gitlab.com/
 
 [includeIf "hasconfig:remote.*.url:https://github.com/**"]
   path = ~/.config/git/gitconfig.github
@@ -108,12 +104,15 @@
   path = ~/.config/git/gitconfig.github
 [includeIf "hasconfig:remote.*.url:ssh://git@gitlab.com:*/**"]
   path = ~/.config/git/gitconfig.gitlab
+
+{{- if .chezmoi.os "darwin" }}
 [difftool "Kaleidoscope"]
 	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 [mergetool "Kaleidoscope"]
 	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
 	trustExitCode = true
-[commit]
-	gpgsign = true
 [gpg]
 	program = /opt/homebrew/bin/gpg
+{{- end }}
+[commit]
+	gpgsign = true
