@@ -26,6 +26,16 @@ config.force_reverse_video_cursor = true
 -- config.freetype_load_target = "Light"
 -- config.default_cursor_style = "BlinkingBlock"
 config.hide_mouse_cursor_when_typing = true
-window_decorations = "INTEGRATED_BUTTONS|RESIZE"
+-- window_decorations = "INTEGRATED_BUTTONS|RESIZE"
+
+config.visual_bell = {
+  fade_in_function = 'EaseIn',
+  fade_in_duration_ms = 150,
+  fade_out_function = 'EaseOut',
+  fade_out_duration_ms = 150,
+}
+config.colors = {
+  visual_bell = '#202020',
+}
 -- and finally, return the configuration to wezterm
 return config
