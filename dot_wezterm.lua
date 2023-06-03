@@ -24,5 +24,6 @@ config.initial_rows = 30
 front_end = "WebGpu"
 config.force_reverse_video_cursor = true
 config.freetype_load_target = "Light"
+config.default_cursor_style = "BlinkingBlock"
 -- and finally, return the configuration to wezterm
 return config
