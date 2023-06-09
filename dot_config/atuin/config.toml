@@ -30,3 +30,5 @@
 filter_mode_shell_up_key_binding = "session"
 
 filter_mode = "host"
+
+show_preview = true
