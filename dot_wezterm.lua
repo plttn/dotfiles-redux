@@ -1,5 +1,5 @@
 -- Pull in the wezterm API
-local wezterm = require 'wezterm'
+local wezterm = require 'argonaut'
 
 -- This table will hold the configuration.
 local config = {}
