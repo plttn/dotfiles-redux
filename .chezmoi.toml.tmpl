@@ -27,6 +27,9 @@
 {{-   $email = promptString "email" $email -}}
 {{- end -}}
 
+{{- $signingkey := "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHGminsJAXUJkc7TH7qHU6RNdZuMcWIwdx+zZCDpDiUG" -}}
+
+
 {{- if $interactive -}}
 {{-   writeToStdout "💡 Tip: you can re-enter your name and email with `chezmoi init --data=false`.\n" -}}
 {{- end -}}
@@ -40,12 +43,14 @@
 
 sourceDir = "{{ .chezmoi.sourceDir }}"
 
+
 [data]
   name = "{{ $name }}"
   email =  "{{ $email }}"
   is_wsl = {{ $is_wsl }}
   computer_name = "{{ $computerName }}"
   os = "{{ .chezmoi.os }}"
+  signingkey = "{{ $signingkey }}"
 
 [git]
   autoCommit = true
