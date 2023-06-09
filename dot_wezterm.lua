@@ -13,7 +13,7 @@ end
 -- This is where you actually apply your config choices
 
 -- For example, changing the color scheme:
-config.color_scheme = 'Argonaut'
+config.color_scheme = 'Brogrammer'
 
 config.font = wezterm.font('Berkeley Mono')
 -- config.harfbuzz_features = {'ss03'}
