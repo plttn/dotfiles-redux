@@ -20,7 +20,8 @@ if type -q op
 end
 
 set -x EXA_STANDARD_OPTIONS --group --header --group-directories-first
-{{- if eq .is_wsl true}}
+# Make sure npiperelay.exe is in `winhome/.wsl/`
+{{- if eq .is_wsl true}} 
 {$HOME}/.local/bin/wsl-ssh-agent-relay start
 export SSH_AUTH_SOCK={$HOME}/.ssh/wsl-ssh-agent.sock
 set -x EXA_L_OPTIONS
