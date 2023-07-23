@@ -21,16 +21,9 @@ end
 
 set -x EXA_STANDARD_OPTIONS --group --header --group-directories-first
 # Make sure npiperelay.exe is in `winhome/.wsl/`
-{{- if eq .is_wsl true}} 
-{$HOME}/.local/bin/wsl-ssh-agent-relay start
-export SSH_AUTH_SOCK={$HOME}/.ssh/wsl-ssh-agent.sock
-set -x EXA_L_OPTIONS
-{{- end }}
 
 
 set fish_greeting
-{{ if eq .chezmoi.os "darwin" -}}
 source /Users/jack/.config/op/plugins.sh
 export LS_COLORS="$(vivid generate molokai)"
-{{- end }}
 
